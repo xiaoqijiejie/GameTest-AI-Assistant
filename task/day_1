@@ -1,1 +1,181 @@
 
+📅 Day 1 学习任务：AI工具入门与游戏测试自动化起点
+🎯 今日目标
+
+掌握Cursor基础操作，为游戏测试工作赋能
+
+完成第一个AI辅助的测试工具
+
+在GitHub提交Day 1学习成果
+
+📋 今日任务清单
+任务1：Cursor环境熟悉与配置（30分钟）
+
+目标：让Cursor成为您的AI测试助手
+
+markdown
+复制
+操作步骤：
+1. 打开Cursor编辑器
+2. 点击左上角File → Open Folder
+3. 选择您本地创建的GameTest-AI-Assistant文件夹
+4. 熟悉左侧文件树、中间编辑区、右侧AI面板
+
+检查点：
+
+✅ 能在Cursor中看到您的GitHub仓库文件
+
+✅ 知道如何使用Ctrl+K调出AI助手
+
+✅ 了解如何选中代码让AI帮助修改
+
+任务2：用AI生成第一个测试工具（60分钟）
+
+目标：基于您发现的"用例生成"应用点，创建一个游戏测试用例生成器
+
+步骤1：创建Python文件
+
+复制
+在Cursor中：
+1. 右键点击您的项目文件夹 → New File
+2. 命名文件：test_case_generator.py
+
+步骤2：让AI帮您编写代码
+
+复制
+在新建的文件中，按Ctrl+K，输入以下提示词：
+
+"请帮我创建一个游戏测试用例生成器。我是QA工程师，主要测试手机游戏。
+功能需求：
+1. 输入游戏功能描述（如'用户登录功能'）
+2. AI自动生成测试用例，包括：
+   - 正常场景测试用例
+   - 异常场景测试用例
+   - 边界条件测试用例
+3. 输出格式化的测试用例文档
+4. 支持保存为.txt文件
+
+技术要求：
+- 使用Python编写
+- 代码有详细注释
+- 使用OpenAI API（或DeepSeek API）
+- 结构清晰，易于扩展
+"
+
+步骤3：运行和调试
+
+复制
+1. 让AI帮您安装所需库
+2. 尝试运行代码
+3. 如果报错，选中错误信息按Ctrl+K，让AI帮您修复
+任务3：实际应用到您的工作场景（30分钟）
+
+目标：用您刚创建的工具解决实际测试问题
+
+选择您最近测试的一个游戏功能，比如：
+
+用户登录/注册
+
+游戏内购买
+
+角色创建
+
+战斗系统
+
+操作：
+
+复制
+1. 在test_case_generator.py中运行程序
+2. 输入您选择的游戏功能描述
+3. 查看AI生成的测试用例
+4. 对比AI生成 vs 您手动编写的差异
+任务4：GitHub提交与记录（20分钟）
+
+目标：形成完整的学习轨迹
+
+步骤1：提交代码到GitHub
+
+复制
+1. 在Cursor中保存所有文件
+2. 在终端中执行：
+   git add .
+   git commit -m "Day 1: 完成游戏测试用例生成器"
+   git push
+
+步骤2：更新学习记录
+
+在README.md或新建daily-log/day1.md中记录：
+
+markdown
+复制
+## 2026-03-05 Day 1 学习记录
+
+### ✅ 完成内容
+1. **Cursor环境配置**：
+   - 成功连接本地项目
+   - 掌握Ctrl+K AI助手使用
+   - 了解代码生成和修改流程
+
+2. **第一个AI工具开发**：
+   - 创建test_case_generator.py
+   - 实现功能：输入游戏功能描述 → 输出测试用例
+   - 集成AI API调用
+   - 支持文件保存功能
+
+3. **实际应用测试**：
+   - 测试了[您测试的游戏功能]功能
+   - AI生成测试用例数量：[数字]个
+   - 与手动编写对比：[您的评价]
+
+4. **GitHub提交**：
+   - 成功提交Day 1代码
+   - 提交哈希：[git log查看]
+
+### 📁 新增文件
+- test_case_generator.py - 游戏测试用例生成器
+- requirements.txt - Python依赖库列表
+- daily-log/day1.md - 本日学习记录
+
+### 🎯 学到的技能
+1. Cursor基础操作
+2. Python调用AI API
+3. 测试用例自动化生成思路
+4. GitHub代码提交流程
+
+### 🆘 遇到的问题
+[记录您遇到的问题，如：API配置、环境设置等]
+
+### 📅 明日计划
+1. 优化测试用例生成器
+2. 学习Python异常处理
+3. 添加更多测试场景支持
+🔧 技术要点详解
+1. Python调用AI API基础
+python
+下载
+复制
+# AI帮您生成的代码可能包含类似结构：
+import openai  # 或 from openai import OpenAI
+
+# 配置API密钥
+client = OpenAI(api_key="your-api-key")
+
+# 调用AI生成测试用例
+response = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[
+        {"role": "system", "content": "你是一个资深游戏测试工程师"},
+        {"role": "user", "content": f"请为'{feature}'功能生成测试用例"}
+    ]
+)
+2. 测试用例生成逻辑
+复制
+AI生成测试用例的思考过程：
+1. 功能分析 → 2. 场景分解 → 3. 用例设计 → 4. 格式输出
+3. 文件操作基础
+python
+下载
+复制
+# 保存测试用例到文件
+with open("test_cases.txt", "w", encoding="utf-8") as f:
+    f.write(generated_cases)
